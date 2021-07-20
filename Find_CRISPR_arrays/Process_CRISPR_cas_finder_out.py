@@ -16,8 +16,7 @@ import xml.etree.ElementTree as Et
 
 
 parser = argparse.ArgumentParser(
-	description="Script to process json files output by CRISPR-cas finder and summarize them in various human-readable files.",
-	formatter_class=LineWrapRawTextHelpFormatter)
+	description="Script to process json files output by CRISPR-cas finder and summarize them in various human-readable files.")
 parser.add_argument(
 	"-i",  dest="indirs", required = False, nargs="+",
 	help="Specify input directories containing output files that were produced by CRISPR-cas finder."
@@ -319,6 +318,6 @@ for k,v in results.items():
 		CRISPR_sum_to_write.append([Strain,Has_CRISPR,Array_count,Spacers,Spacers_encoded,Array_ids, Array_locations,Array_sizes,Repeat_sequences,Array_types,Repeat_scores, Leaders, Cas_found, Cas_types, Cas_completeness, Cas_completeness_binary, Cas_list])
 
 
-# with open(outdir + "CRISPR_summary_table.csv", 'w+') as fout:
-# 	fout.write("\n".join([','.join(line) for line in CRISPR_sum_to_write]))
+with open(outdir + "CRISPR_summary_table.csv", 'w+') as fout:
+	fout.write("\n".join([','.join(line) for line in CRISPR_sum_to_write]))
 
